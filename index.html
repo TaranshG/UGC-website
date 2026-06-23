@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Taransh — Canada-based UGC creator making natural short-form videos for apps, tech, student life, skincare, and everyday brands. English, Hindi, French.">
+<title>Taransh Creates · UGC Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ─────────────────────────────── */
+:root{
+  --bg:#fffaf2;
+  --bg-soft:#f7efe5;
+  --ink:#17131f;
+  --text:#2a2434;
+  --muted:#6d6478;
+  --muted-2:#8c8298;
+  --card:#ffffff;
+  --card-warm:#fff6eb;
+  --border:#eadfce;
+  --border-strong:#d9cbb9;
+  --accent:#7c5cff;
+  --accent-dark:#5f43e8;
+  --accent-soft:#efe9ff;
+  --shadow:0 18px 50px rgba(59,45,25,.10);
+  --shadow-soft:0 10px 30px rgba(59,45,25,.07);
+  --radius:22px;
+  --radius-sm:14px;
+  --max:1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button,input,textarea,select{font:inherit;}
+img,video{max-width:100%;display:block;}
+::selection{background:var(--accent-soft);color:var(--accent-dark);}
+
+/* skip link */
+.skip-link{position:absolute;left:-9999px;top:1rem;background:var(--ink);color:#fff;padding:.7rem 1rem;border-radius:999px;z-index:999;}
+.skip-link:focus{left:1rem;}
+
+/* ── BUTTONS ─────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border:0;border-radius:999px;padding:.78rem 1.25rem;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .18s,transform .15s,box-shadow .18s;background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(124,92,255,.22);white-space:nowrap;line-height:1;}
+.btn:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 12px 28px rgba(124,92,255,.28);}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.btn.dark{background:var(--ink);box-shadow:0 8px 22px rgba(23,19,31,.14);}
+.btn.dark:hover{background:#2b2438;}
+.btn.ghost{background:rgba(255,255,255,.7);border:1px solid var(--border);color:var(--ink);box-shadow:none;}
+.btn.ghost:hover{background:#fff;border-color:var(--border-strong);}
+.btn.sm{padding:.58rem .95rem;font-size:.84rem;}
+
+/* ── NAV ─────────────────────────────────── */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,250,242,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(234,223,206,.8);}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+/* ✏️ BRAND NAME: update "Taransh Creates" below if needed */
+.logo{display:flex;align-items:center;gap:.6rem;font-family:"Plus Jakarta Sans",Inter,sans-serif;font-weight:800;letter-spacing:-.03em;font-size:1rem;color:var(--ink);}
+.logo-mark{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff9c73);display:grid;place-items:center;color:#fff;font-size:.9rem;flex-shrink:0;box-shadow:0 6px 14px rgba(124,92,255,.22);}
+.nav-links{display:flex;align-items:center;gap:1.5rem;list-style:none;}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--muted);transition:color .18s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-actions{display:flex;align-items:center;gap:.6rem;flex-shrink:0;}
+
+/* ── HERO ─────────────────────────────────── */
+.hero{position:relative;isolation:isolate;padding:4rem 1.25rem 3rem;}
+.hero::before{content:"";position:absolute;inset:-180px -18% auto auto;width:680px;height:680px;background:radial-gradient(circle,rgba(124,92,255,.15),transparent 62%);z-index:-1;pointer-events:none;}
+.hero::after{content:"";position:absolute;left:-14%;bottom:-30%;width:560px;height:560px;background:radial-gradient(circle,rgba(255,156,115,.17),transparent 58%);z-index:-1;pointer-events:none;}
+.hero-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.05fr .82fr;align-items:center;gap:3rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem .72rem;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.7);color:var(--accent-dark);font-size:.77rem;font-weight:800;letter-spacing:.03em;width:max-content;margin-bottom:.9rem;}
+.dot{width:8px;height:8px;border-radius:50%;background:#2fc469;box-shadow:0 0 0 4px rgba(47,196,105,.15);flex-shrink:0;}
+h1,h2,h3{font-family:"Plus Jakarta Sans",Inter,sans-serif;color:var(--ink);letter-spacing:-.04em;}
+.hero h1{font-size:clamp(2.5rem,5.5vw,4.8rem);line-height:.97;font-weight:800;margin-bottom:1rem;}
+.hero h1 span{background:linear-gradient(120deg,var(--accent),#ff8a61);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-copy{font-size:1.05rem;color:var(--muted);max-width:560px;margin-bottom:1.4rem;line-height:1.65;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.25rem;}
+.trust-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;}
+.trust-pill{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.7);border:1px solid var(--border);border-radius:999px;padding:.44rem .72rem;font-size:.8rem;font-weight:700;color:var(--muted);}
+
+/* hero phone card */
+.creator-card{background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:30px;padding:.9rem;box-shadow:var(--shadow);}
+.phone-frame{position:relative;border-radius:22px;overflow:hidden;background:#111;min-height:490px;}
+/* hero preview video — muted autoplay loop is fine for ambient atmosphere */
+.phone-frame > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.phone-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.5));pointer-events:none;}
+.phone-caption{position:relative;z-index:2;margin:.75rem;background:rgba(255,255,255,.94);border-radius:18px;padding:.9rem 1rem;color:var(--ink);}
+.phone-caption p:first-child{font-weight:800;font-size:.92rem;margin-bottom:.25rem;font-family:"Plus Jakarta Sans",Inter,sans-serif;}
+.phone-caption p:last-child{font-size:.82rem;color:var(--muted);line-height:1.45;}
+.quick-info{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;margin-top:.75rem;}
+.quick-info div{background:rgba(255,255,255,.8);border:1px solid var(--border);border-radius:14px;padding:.7rem;text-align:center;}
+.quick-info strong{display:block;color:var(--ink);font-size:.93rem;line-height:1;}
+.quick-info span{display:block;color:var(--muted);font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-top:.28rem;}
+
+/* ── SHARED SECTION ──────────────────────── */
+.section{max-width:var(--max);margin:0 auto;padding:4rem 1.25rem;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2rem;}
+.section-kicker{font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-dark);margin-bottom:.4rem;}
+.section-title{font-size:clamp(1.8rem,3.8vw,2.8rem);line-height:1.05;font-weight:800;margin-bottom:.5rem;}
+.section-sub{color:var(--muted);max-width:580px;font-size:.97rem;line-height:1.65;}
+.soft-band{background:linear-gradient(180deg,var(--bg-soft),var(--bg));border-top:1px solid rgba(234,223,206,.75);border-bottom:1px solid rgba(234,223,206,.5);}
+
+/* ── VALUE STRIP ──────────────────────────── */
+.value-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:2rem;}
+.value-item{background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:18px;padding:1rem 1.1rem;}
+.value-item strong{display:block;color:var(--ink);font-size:.95rem;font-weight:700;margin-bottom:.25rem;}
+.value-item span{display:block;color:var(--muted);font-size:.84rem;line-height:1.5;}
+
+/* ── PORTFOLIO GRID ───────────────────────── */
+/* ✏️ VIDEOS: copy a .portfolio-card article block to add more clips */
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;max-width:800px;margin:0 auto;}
+.portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+.portfolio-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.video-slot{aspect-ratio:9/16;background:#111;position:relative;overflow:hidden;}
+.video-slot video{width:100%;height:100%;object-fit:cover;display:block;}
+/* fallback for no-video browsers */
+.video-slot video::after{content:"Video unavailable in this browser.";display:block;position:absolute;inset:0;background:#111;color:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-size:.85rem;padding:1rem;text-align:center;}
+.portfolio-info{padding:.95rem 1.05rem 1.05rem;}
+.portfolio-info .p-type{color:var(--accent-dark);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem;}
+.portfolio-info h3{font-size:.97rem;line-height:1.25;margin-bottom:.28rem;font-family:"Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.02em;}
+.portfolio-info .p-desc{color:var(--muted);font-size:.84rem;line-height:1.45;}
+
+/* ── SERVICES ─────────────────────────────── */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;}
+.svc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow-soft);transition:transform .2s,box-shadow .2s;}
+.svc-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.svc-icon{width:44px;height:44px;border-radius:14px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:.9rem;font-size:1.3rem;}
+.svc-card h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem;}
+.svc-card p{color:var(--muted);font-size:.88rem;line-height:1.55;}
+
+/* ── PROCESS ──────────────────────────────── */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;counter-reset:step;}
+.step{background:var(--ink);color:#fff;border-radius:var(--radius);padding:1.3rem;min-height:200px;position:relative;overflow:hidden;}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:"Plus Jakarta Sans";font-size:3.6rem;font-weight:800;line-height:1;color:rgba(255,255,255,.1);position:absolute;right:.9rem;bottom:.6rem;letter-spacing:-.06em;}
+.step:nth-child(2){background:#332554;}
+.step:nth-child(3){background:#5138a3;}
+.step:nth-child(4){background:var(--accent-dark);}
+.step h3{color:#fff;font-size:.97rem;margin-bottom:.45rem;}
+.step p{color:rgba(255,255,255,.72);font-size:.88rem;line-height:1.55;position:relative;}
+
+/* ── ABOUT ────────────────────────────────── */
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:1.1rem;align-items:start;}
+.profile-box{background:linear-gradient(145deg,var(--card-warm),#fff);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-soft);}
+.profile-top{display:flex;gap:.9rem;align-items:center;margin-bottom:1.1rem;}
+/* ✏️ AVATAR: replace the letter "T" div with <img src="your-photo.jpg" alt="Taransh"> */
+.avatar{width:74px;height:74px;border-radius:20px;background:linear-gradient(135deg,var(--accent),#ff9c73);display:grid;place-items:center;color:#fff;font-size:1.9rem;font-weight:800;flex-shrink:0;font-family:"Plus Jakarta Sans";}
+.profile-top h3{font-size:1.15rem;margin-bottom:.2rem;}
+.profile-top p{color:var(--muted);font-size:.86rem;}
+.tag-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1rem;}
+.tag{display:inline-flex;align-items:center;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.4rem .7rem;font-size:.8rem;font-weight:700;color:var(--muted);}
+.lang-box{display:grid;gap:.5rem;}
+.lang-row{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--border);border-radius:14px;padding:.68rem .85rem;}
+.lang-row strong{font-size:.9rem;color:var(--ink);}
+.lang-row span{font-size:.74rem;font-weight:900;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.06em;}
+.bio-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow-soft);}
+.bio-panel p{color:var(--muted);font-size:.96rem;line-height:1.75;}
+.bio-panel p+p{margin-top:.85rem;}
+
+/* ── WHY ──────────────────────────────────── */
+.why-list{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;}
+.why-item{display:flex;gap:.9rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow-soft);}
+.why-num{width:36px;height:36px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem;flex-shrink:0;}
+.why-item h3{font-size:.97rem;margin-bottom:.22rem;}
+.why-item p{color:var(--muted);font-size:.88rem;line-height:1.55;}
+
+/* ── FAQ ──────────────────────────────────── */
+.faq-list{display:grid;gap:.6rem;}
+details{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.1rem;box-shadow:var(--shadow-soft);}
+details[open]{border-color:var(--border-strong);}
+summary{cursor:pointer;list-style:none;font-weight:700;color:var(--ink);font-size:.95rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";font-size:1.2rem;color:var(--accent);flex-shrink:0;line-height:1;}
+details[open] summary::after{content:"−";}
+details p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-top:.7rem;}
+
+/* ── CONTACT ──────────────────────────────── */
+.contact-card{background:linear-gradient(135deg,var(--ink),#342354 60%,var(--accent-dark));color:#fff;border-radius:30px;padding:2.5rem;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.contact-card::before{content:"";position:absolute;right:-100px;top:-120px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.1);pointer-events:none;}
+.contact-grid{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:2.5rem;align-items:start;}
+.contact-card h2{color:#fff;font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.04;margin-bottom:.8rem;}
+.contact-card > div > p,.contact-grid > div > p{color:rgba(255,255,255,.74);max-width:440px;margin-bottom:1.1rem;font-size:.97rem;}
+.contact-methods{display:grid;gap:.65rem;margin-top:1.4rem;}
+.contact-method{display:flex;align-items:center;justify-content:space-between;gap:.8rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:.85rem 1rem;color:#fff;transition:background .18s;}
+.contact-method:hover{background:rgba(255,255,255,.17);}
+.contact-method:focus-visible{outline:2px solid rgba(255,255,255,.7);outline-offset:2px;}
+.contact-method strong{display:block;font-size:.86rem;}
+.contact-method em{display:block;font-style:normal;font-size:.78rem;color:rgba(255,255,255,.62);margin-top:.1rem;}
+.contact-method span{font-size:1rem;opacity:.7;}
+
+/* contact form */
+.form{background:rgba(255,255,255,.97);border-radius:22px;padding:1.3rem;color:var(--ink);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.form-row.full{grid-template-columns:1fr;}
+.form label{display:grid;gap:.3rem;font-size:.76rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
+.form input,.form textarea,.form select{width:100%;border:1.5px solid var(--border);border-radius:12px;padding:.72rem .85rem;background:#fff;color:var(--ink);outline:none;transition:border-color .18s,box-shadow .18s;font-size:.92rem;font-weight:500;}
+.form input:focus,.form textarea:focus,.form select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,92,255,.12);}
+.form textarea{min-height:100px;resize:vertical;}
+.form-submit{margin-top:.8rem;}
+.form-submit .btn{width:100%;}
+.form-note{color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:.7rem;}
+
+/* ── FOOTER ───────────────────────────────── */
+.footer{max-width:var(--max);margin:0 auto;padding:1.75rem 1.25rem 5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:var(--muted);font-size:.83rem;border-top:1px solid var(--border);}
+.footer a{font-weight:700;color:var(--ink);}
+.footer a:hover{color:var(--accent);}
+
+/* ── MOBILE STICKY CTA ────────────────────── */
+.mobile-sticky{display:none;position:fixed;z-index:101;left:1rem;right:1rem;bottom:1rem;}
+.mobile-sticky .btn{width:100%;box-shadow:0 12px 30px rgba(124,92,255,.3);}
+
+/* ── FEEDBACK TOAST ───────────────────────── */
+.toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(10px);background:var(--ink);color:#fff;padding:.65rem 1.1rem;border-radius:999px;font-size:.84rem;font-weight:600;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:200;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;}
+  .creator-card{max-width:420px;}
+  .phone-frame{min-height:440px;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+  .value-strip,.process{grid-template-columns:repeat(2,1fr);}
+  .card-grid{grid-template-columns:repeat(2,1fr);}
+  .section-head{flex-direction:column;align-items:flex-start;gap:.8rem;}
+}
+@media(max-width:700px){
+  .nav-links{display:none;}
+  .nav-actions .ghost{display:none;}
+  .portfolio-grid{grid-template-columns:1fr 1fr;max-width:100%;}
+  .why-list,.faq-list,.card-grid{grid-template-columns:1fr;}
+  .value-strip,.process{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .quick-info{grid-template-columns:repeat(3,1fr);}
+  .contact-card{padding:1.4rem;border-radius:22px;}
+  .mobile-sticky{display:block;}
+  .footer{flex-direction:column;text-align:center;padding-bottom:5.5rem;}
+}
+@media(max-width:430px){
+  .portfolio-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:2.4rem;}
+  .quick-info{grid-template-columns:1fr;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="topnav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="logo" href="#" aria-label="Taransh Creates — back to top">
+      <span class="logo-mark" aria-hidden="true">T</span>
+      <span>Taransh Creates</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn ghost sm" type="button" onclick="copyEmail()">Copy Email</button>
+      <!-- ✏️ EMAIL: update the mailto address here and anywhere else you see taranshg.dev@gmail.com -->
+      <a class="btn sm" href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry">Work With Me</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Available for UGC campaigns</p>
+      <h1>Videos that feel <span>real, useful,<br>and easy to watch.</span></h1>
+      <p class="hero-copy">Hi, I'm Taransh — an Ontario-based UGC creator making natural short-form videos for apps, tech, student life, skincare, and everyday brands. I help products make sense to real people.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#contact">Start a Collab →</a>
+        <a class="btn ghost" href="#portfolio">View Portfolio</a>
+      </div>
+      <div class="trust-row" aria-label="Creator highlights">
+        <span class="trust-pill">📍 Canada-based</span>
+        <span class="trust-pill">🎥 On-camera + voiceover</span>
+        <span class="trust-pill">🗣 English · Hindi · French</span>
+        <span class="trust-pill">📱 Reels · TikTok · Shorts</span>
+      </div>
+    </div>
+
+    <aside class="creator-card" aria-label="Video preview">
+      <div class="phone-frame">
+        <!--
+          Hero preview: muted autoplay loop — fine for atmosphere.
+          ✏️ VIDEO: swap src to your preferred preview clip if you want something different.
+        -->
+        <video src="videos/Sprout.mp4" autoplay muted loop playsinline preload="metadata"
+               aria-label="Taransh UGC reel preview — Sprout job search video"></video>
+        <div class="phone-caption">
+          <p>"Feels like a friend explaining it."</p>
+          <p>Natural product demos, app walkthroughs, and creator-style ads — ready for your campaign.</p>
+        </div>
+      </div>
+      <div class="quick-info" aria-label="Quick facts">
+        <div><strong>UGC</strong><span>Short-form</span></div>
+        <div><strong>3 langs</strong><span>EN · HI · FR</span></div>
+        <div><strong>Fast</strong><span>Clear workflow</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════ VALUE STRIP ═══════════ -->
+<section class="section" style="padding-top:2rem;padding-bottom:2rem;" aria-label="Why brands work with Taransh">
+  <div class="value-strip">
+    <div class="value-item"><strong>Natural delivery</strong><span>Sounds like a real recommendation — not a stiff ad.</span></div>
+    <div class="value-item"><strong>Student perspective</strong><span>Strong fit for apps, tech, productivity, and Gen Z products.</span></div>
+    <div class="value-item"><strong>Easy to brief</strong><span>Send the goal and talking points — I'll shape the video.</span></div>
+    <div class="value-item"><strong>Multilingual</strong><span>English and Hindi fluent. Simple French available too.</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ PORTFOLIO ═══════════ -->
+<!--
+  ✏️ VIDEOS: Put your .mp4 files in a folder called "videos/" next to this HTML file.
+  To add a new video, copy one <article class="portfolio-card"> block and update src, labels, and description.
+  Current files expected:
+    videos/cetaphil.mp4
+    videos/Sprout.mp4
+    videos/Taransh Goyal - Study Fetch Application (1).mp4
+    videos/TurboLearn AI UGC.mp4
+-->
+<section id="portfolio" class="section soft-band">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Portfolio</p>
+      <h2 class="section-title">Current work</h2>
+      <p class="section-sub">Four clips spanning skincare, career apps, study tools, and AI learning — watch them here without leaving the page.</p>
+    </div>
+    <a class="btn sm" href="#contact">Request similar content</a>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <article class="portfolio-card">
+      <div class="video-slot">
+        <video src="videos/cetaphil.mp4" controls playsinline preload="metadata"
+               aria-label="Cetaphil cream lifestyle demo — skincare product UGC">
+          Video not supported in your browser.
+        </video>
+      </div>
+      <div class="portfolio-info">
+        <p class="p-type">Product demo · Skincare</p>
+        <h3>Cetaphil cream lifestyle demo</h3>
+        <p class="p-desc">On-camera routine integration showing texture, use, and natural daily product fit.</p>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <div class="video-slot">
+        <video src="videos/Sprout.mp4" controls playsinline preload="metadata"
+               aria-label="Sprout job search promotion — career app UGC">
+          Video not supported in your browser.
+        </video>
+      </div>
+      <div class="portfolio-info">
+        <p class="p-type">App promo · Career / Student</p>
+        <h3>Sprout job search promotion</h3>
+        <p class="p-desc">Student-to-job-seeker angle — good proof for career, HR, and productivity brands.</p>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <div class="video-slot">
+        <video src="videos/Taransh Goyal - Study Fetch Application (1).mp4" controls playsinline preload="metadata"
+               aria-label="StudyFetch student story video — EdTech UGC">
+          Video not supported in your browser.
+        </video>
+      </div>
+      <div class="portfolio-info">
+        <p class="p-type">App promo · Study tool / EdTech</p>
+        <h3>StudyFetch student story video</h3>
+        <p class="p-desc">Story-style framing — strong fit for education, AI, and study-productivity brands.</p>
+      </div>
+    </article>
+
+    <article class="portfolio-card">
+      <div class="video-slot">
+        <video src="videos/TurboLearn AI UGC.mp4" controls playsinline preload="metadata"
+               aria-label="TurboLearn AI study tool promo — AI learning UGC">
+          Video not supported in your browser.
+        </video>
+      </div>
+      <div class="portfolio-info">
+        <p class="p-type">App promo · AI learning / EdTech</p>
+        <h3>TurboLearn AI study tool promo</h3>
+        <p class="p-desc">Explains an AI tool in a simple, student-friendly way — good test for AI or SaaS brands.</p>
+      </div>
+    </article>
+
+    <!--
+    ✏️ NEW VIDEO — paste here when you have more clips:
+
+    <article class="portfolio-card">
+      <div class="video-slot">
+        <video src="videos/yourfile.mp4" controls playsinline preload="metadata"
+               aria-label="Description of the video for screen readers">
+          Video not supported in your browser.
+        </video>
+      </div>
+      <div class="portfolio-info">
+        <p class="p-type">Type · Category</p>
+        <h3>Video title here</h3>
+        <p class="p-desc">One or two sentences about the content and what brands it suits.</p>
+      </div>
+    </article>
+    -->
+
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section id="services" class="section">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Services</p>
+      <h2 class="section-title">What I create</h2>
+      <p class="section-sub">Short-form content in formats that work across paid ads, organic posts, landing pages, and product pages.</p>
+    </div>
+  </div>
+  <div class="card-grid">
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">🎬</div><h3>On-camera UGC</h3><p>Natural face-to-camera videos for Reels, TikTok, Shorts, or paid ad creative.</p></article>
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">📱</div><h3>App walkthroughs</h3><p>Screen recordings with voiceover or face-cam that show how an app actually helps.</p></article>
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">🧪</div><h3>Product demos</h3><p>Hands-on clips that show the product, the problem it solves, and why someone should care.</p></article>
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">📦</div><h3>Unboxings</h3><p>First impressions, packaging reveal, setup, and honest creator-style reaction.</p></article>
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">💬</div><h3>Testimonial style</h3><p>Problem-solution videos that feel personal and work well for paid ad testing.</p></article>
+    <article class="svc-card"><div class="svc-icon" aria-hidden="true">🎙️</div><h3>Voiceover + B-roll</h3><p>Clean product footage with narration and captions that brands can repurpose easily.</p></article>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process" class="section soft-band">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">How it works</p>
+      <h2 class="section-title">A simple collab flow</h2>
+      <p class="section-sub">Four steps, no chasing, no confusion.</p>
+    </div>
+  </div>
+  <div class="process" aria-label="Collaboration process steps">
+    <article class="step"><h3>Brief</h3><p>You send the product, goal, key talking points, usage needs, and timeline.</p></article>
+    <article class="step"><h3>Concept</h3><p>I turn the brief into hooks, angles, and a simple plan that fits your brand.</p></article>
+    <article class="step"><h3>Create</h3><p>I film, record, and edit — face-cam, screen recording, voiceover, captions, whatever the brief needs.</p></article>
+    <article class="step"><h3>Deliver</h3><p>You get publish-ready files. Revisions are included as agreed in the brief.</p></article>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="section">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">About</p>
+      <h2 class="section-title">The person behind the camera</h2>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="profile-box">
+      <div class="profile-top">
+        <!-- ✏️ AVATAR: replace this div with your actual photo:
+             <img src="your-photo.jpg" alt="Taransh — UGC Creator" style="width:74px;height:74px;border-radius:20px;object-fit:cover;flex-shrink:0;">
+        -->
+        <div class="avatar" aria-hidden="true">T</div>
+        <div>
+          <h3>Taransh</h3>
+          <p>UGC Creator · Ontario, Canada</p>
+        </div>
+      </div>
+      <div class="tag-list" aria-label="Content niches">
+        <span class="tag">Tech &amp; apps</span>
+        <span class="tag">Student life</span>
+        <span class="tag">Productivity</span>
+        <span class="tag">Lifestyle</span>
+        <span class="tag">Gadgets</span>
+        <span class="tag">Skincare &amp; grooming</span>
+        <span class="tag">Everyday products</span>
+      </div>
+      <div class="lang-box" aria-label="Language availability" style="margin-top:1rem;">
+        <div class="lang-row"><strong>English</strong><span>Fluent</span></div>
+        <div class="lang-row"><strong>Hindi</strong><span>Fluent</span></div>
+        <div class="lang-row"><strong>French</strong><span>Intermediate</span></div>
+      </div>
+    </div>
+    <div class="bio-panel">
+      <p>Hi, I'm Taransh — a McMaster Computer Science student and UGC creator based in Ontario. I make content that explains products in a way that feels simple, friendly, and honest.</p>
+      <p>My style is natural, clear, and slightly fun. I'm comfortable on camera, doing voiceovers, recording app walkthroughs, and showing products in everyday routines.</p>
+      <p>I'm a strong fit for brands targeting students, young consumers, tech users, and people who prefer content that feels like a real recommendation — not a scripted commercial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY ═══════════ -->
+<section class="section soft-band">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">Why work with me</p>
+      <h2 class="section-title">What brands often ask before reaching out</h2>
+    </div>
+  </div>
+  <div class="why-list">
+    <article class="why-item">
+      <div class="why-num" aria-hidden="true">1</div>
+      <div><h3>I sound like a real person</h3><p>No corporate delivery. The goal is to make the product feel understandable and useful, not sell-y.</p></div>
+    </article>
+    <article class="why-item">
+      <div class="why-num" aria-hidden="true">2</div>
+      <div><h3>I can explain tech clearly</h3><p>Studying CS means I can make apps and tech products feel less confusing — without being condescending.</p></div>
+    </article>
+    <article class="why-item">
+      <div class="why-num" aria-hidden="true">3</div>
+      <div><h3>I can reach more than one audience</h3><p>English and Hindi content available, with simple French content when needed.</p></div>
+    </article>
+    <article class="why-item">
+      <div class="why-num" aria-hidden="true">4</div>
+      <div><h3>The process stays simple</h3><p>Clear brief, clear concept, clear delivery. You won't have to chase me for updates.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="section">
+  <div class="section-head">
+    <div>
+      <p class="section-kicker">FAQ</p>
+      <h2 class="section-title">Common questions</h2>
+    </div>
+  </div>
+  <div class="faq-list">
+    <details><summary>Do you work with brands outside Canada?</summary><p>Yes. I work remotely and can receive products by mail when needed for physical demos.</p></details>
+    <details><summary>Do you appear on camera?</summary><p>Yes. I can do on-camera videos, voiceover-only videos, or product B-roll depending on what works for your campaign.</p></details>
+    <details><summary>Can you create content in Hindi or French?</summary><p>Yes. English and Hindi are both fluent. French is available at an intermediate level for simple product content.</p></details>
+    <details><summary>What types of products are the best fit?</summary><p>Apps, tech products, student tools, productivity software, lifestyle products, skincare and grooming, gadgets, and everyday consumer products.</p></details>
+    <details><summary>Can I provide a script or talking points?</summary><p>Yes. I can work from your talking points or a full script. I'll usually adjust the wording slightly to make it sound natural for short-form video.</p></details>
+    <details><summary>What should I include when I reach out?</summary><p>The product or service, the campaign goal, deliverables needed, how you plan to use the content, your timeline, and any style references you like.</p></details>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="section">
+  <div class="contact-card">
+    <div class="contact-grid">
+
+      <div class="contact-methods" aria-label="Contact options">
+  <a class="contact-method" href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry">
+    <div><strong>Email</strong><em>taranshg.dev@gmail.com</em></div><span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="contact-method" href="https://www.instagram.com/taransh.creates" target="_blank" rel="noopener noreferrer">
+    <div><strong>Instagram</strong><em>@taransh.creates</em></div><span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="contact-method" href="https://www.instagram.com/techwithtaransh/" target="_blank" rel="noopener noreferrer">
+    <div><strong>Instagram</strong><em>@techwithtaransh</em></div><span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="contact-method" href="https://www.tiktok.com/@taransh.creates" target="_blank" rel="noopener noreferrer">
+    <div><strong>TikTok</strong><em>@taransh.creates</em></div><span aria-hidden="true">↗</span>
+  </a>
+
+  <a class="contact-method" href="https://www.tiktok.com/@techwithtaransh" target="_blank" rel="noopener noreferrer">
+    <div><strong>TikTok</strong><em>@techwithtaransh</em></div><span aria-hidden="true">↗</span>
+  </a>
+</div>
+
+      <!--
+        FORM NOTE: This form uses mailto: — it opens the visitor's email client with the details pre-filled.
+        To use a real backend form instead, replace onsubmit="sendInquiry(event)" with:
+          action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+        and remove the onsubmit handler. Delete the <script> section too.
+      -->
+      <form class="form" onsubmit="sendInquiry(event)" novalidate>
+        <div class="form-row">
+          <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" placeholder="Your name" required></label>
+          <label for="f-brand">Brand<input id="f-brand" name="brand" autocomplete="organization" placeholder="Brand or company"></label>
+        </div>
+        <div class="form-row full" style="margin-top:.75rem;">
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@brand.com" required></label>
+        </div>
+        <div class="form-row full" style="margin-top:.75rem;">
+          <label for="f-need">What do you need?
+            <select id="f-need" name="need">
+              <option>UGC video</option>
+              <option>App walkthrough</option>
+              <option>Product demo</option>
+              <option>Unboxing</option>
+              <option>Voiceover / B-roll</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row full" style="margin-top:.75rem;">
+          <label for="f-message">Message
+            <textarea id="f-message" name="message" placeholder="Product, timeline, deliverables, campaign goal — anything that helps me give you a useful reply."></textarea>
+          </label>
+        </div>
+        <div class="form-submit">
+          <button class="btn" type="submit">Send Inquiry →</button>
+        </div>
+        <p class="form-note">This opens your email app with the details filled in. Prefer to write directly? <a href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry" style="color:var(--accent-dark);font-weight:700;">Email me here.</a></p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- mobile sticky CTA — hidden on desktop via CSS -->
+<div class="mobile-sticky" aria-hidden="true">
+  <a class="btn" href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry">Email Taransh →</a>
+</div>
+
+<footer class="footer">
+  <p>© 2026 Taransh Creates · UGC Creator · Ontario, Canada</p>
+  <nav aria-label="Footer navigation">
+    <a href="#portfolio">Portfolio</a> ·
+    <a href="#services">Services</a> ·
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+/* ✏️ EMAIL: update this one constant to change the email everywhere in the JS */
+const EMAIL = 'taranshg.dev@gmail.com';
+
+/* Toast helper — replaces the jarring alert() */
+function showToast(msg, duration = 2400){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+/* Copy email to clipboard */
+function copyEmail(){
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(EMAIL)
+      .then(() => showToast('Email copied: ' + EMAIL))
+      .catch(() => { window.location.href = 'mailto:' + EMAIL + '?subject=UGC%20Collaboration%20Inquiry'; });
+  } else {
+    window.location.href = 'mailto:' + EMAIL + '?subject=UGC%20Collaboration%20Inquiry';
+  }
+}
+
+/* Contact form → mailto draft */
+function sendInquiry(e){
+  e.preventDefault();
+  const name    = document.getElementById('f-name').value.trim();
+  const brand   = document.getElementById('f-brand').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const need    = document.getElementById('f-need').value;
+  const message = document.getElementById('f-message').value.trim();
+
+  if(!name || !email){ showToast('Please fill in your name and email.'); return; }
+
+  const subject = encodeURIComponent('UGC Inquiry' + (brand ? ' — ' + brand : ''));
+  const body = encodeURIComponent(
+`Hi Taransh,
+
+I'm interested in working together on UGC content.
+
+Name: ${name}
+Brand: ${brand || 'N/A'}
+Reply-to: ${email}
+Content needed: ${need}
+
+Details:
+${message || 'N/A'}
+
+Thanks!`);
+
+  window.location.href = 'mailto:' + EMAIL + '?subject=' + subject + '&body=' + body;
+}
+</script>
+</body>
+</html>
