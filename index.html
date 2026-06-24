@@ -619,7 +619,7 @@ details p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-top:.7rem;}
         2) Replace REPLACE_WITH_YOUR_FORM_ID in the action URL below.
         Until then, the JavaScript falls back to opening a pre-filled email.
       -->
-      <form class="form" id="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" onsubmit="sendInquiry(event)" novalidate>
+      <form class="form" id="contact-form" action="https://formspree.io/f/xeeboyll" method="POST" onsubmit="sendInquiry(event)" novalidate>
         <input type="hidden" name="_subject" value="New UGC inquiry from Taransh Creates">
         <div class="form-row">
           <label for="f-name">Name<input id="f-name" name="name" autocomplete="name" placeholder="Your name" required></label>
@@ -715,7 +715,7 @@ function sendInquiry(e){
     return;
   }
 
-  if(!form.action.includes('REPLACE_WITH_YOUR_FORM_ID')){
+  if(!form.action.includes('xeeboyll')){
     if(status) status.textContent = 'Sending your inquiry...';
     return; // real backend form submission
   }
