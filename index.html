@@ -649,7 +649,7 @@ details p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-top:.7rem;}
           <button class="btn" type="submit">Send Inquiry →</button>
         </div>
         <p class="form-status" id="form-status" aria-live="polite"></p>
-        <p class="form-note">After you add your Formspree ID, this form will send inquiries directly. Until then, it opens your email app with the details filled in. Prefer to write directly? <a href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry" style="color:var(--accent-dark);font-weight:700;">Email me here.</a></p>
+        <p class="form-note">This form sends inquiries directly to me. Prefer to write directly?? <a href="mailto:taranshg.dev@gmail.com?subject=UGC%20Collaboration%20Inquiry" style="color:var(--accent-dark);font-weight:700;">Email me here.</a></p>
       </form>
 
     </div>
@@ -715,10 +715,8 @@ function sendInquiry(e){
     return;
   }
 
-  if(!form.action.includes('xeeboyll')){
-    if(status) status.textContent = 'Sending your inquiry...';
-    return; // real backend form submission
-  }
+  if(status) status.textContent = 'Sending your inquiry...';
+    return;
 
   e.preventDefault();
 
